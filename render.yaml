@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: visualization-ai-bot
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn main:app
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: ADMIN_ID
+        value: "6203930902"
+      - key: WEBHOOK_URL
+        sync: false
